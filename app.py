@@ -71,20 +71,21 @@ with st.sidebar:
     selected = st.selectbox("Choose Instrument:", options)
     
     analyze_button = st.button("🚀 Analyze Now", type="primary", use_container_width=True)
-    
-if 'result' in st.session_state:
+
+    # ── Quick Stats moved INTO the sidebar ──
+    if 'result' in st.session_state:
         st.markdown("---")
         st.markdown("### 📊 Quick Stats")
         st.markdown(f"""
-        <div style='text-align: center; padding: 1rem; background: #f0f2f6; border-radius: 10px; margin-bottom: 1rem;'>
-            <p style='font-size: 3rem; font-weight: bold; margin: 0; color: #667eea;'>{st.session_state.result['confidence']}%</p>
-            <p style='font-size: 1rem; margin: 0; color: #666;'>Confidence</p>
+        <div style='text-align: center; padding: 0.6rem 0.4rem; background: #f0f2f6; border-radius: 8px; margin-bottom: 0.5rem;'>
+            <p style='font-size: 1.8rem; font-weight: bold; margin: 0; color: #667eea;'>{st.session_state.result['confidence']}%</p>
+            <p style='font-size: 0.75rem; margin: 0; color: #666;'>Confidence</p>
         </div>
         """, unsafe_allow_html=True)
         st.markdown(f"""
-        <div style='text-align: center; padding: 1rem; background: #f0f2f6; border-radius: 10px;'>
-            <p style='font-size: 1.5rem; font-weight: bold; margin: 0;'>{st.session_state.result['verdict'].replace('_', ' ')}</p>
-            <p style='font-size: 0.9rem; margin: 0; color: #666;'>Verdict</p>
+        <div style='text-align: center; padding: 0.5rem 0.4rem; background: #f0f2f6; border-radius: 8px;'>
+            <p style='font-size: 0.85rem; font-weight: bold; margin: 0; word-wrap: break-word;'>{st.session_state.result['verdict'].replace('_', ' ')}</p>
+            <p style='font-size: 0.7rem; margin: 0; color: #666;'>Verdict</p>
         </div>
         """, unsafe_allow_html=True)
 
