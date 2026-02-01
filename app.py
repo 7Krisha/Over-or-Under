@@ -77,15 +77,9 @@ with st.sidebar:
         st.markdown("---")
         st.markdown("### 📊 Quick Stats")
         st.markdown(f"""
-        <div style='text-align: center; padding: 0.6rem 0.4rem; background: #f0f2f6; border-radius: 8px; margin-bottom: 0.5rem;'>
+        <div style='text-align: center; padding: 0.6rem 0.4rem; background: #f0f2f6; border-radius: 8px;'>
             <p style='font-size: 1.8rem; font-weight: bold; margin: 0; color: #667eea;'>{st.session_state.result['confidence']}%</p>
             <p style='font-size: 0.75rem; margin: 0; color: #666;'>Confidence</p>
-        </div>
-        """, unsafe_allow_html=True)
-        st.markdown(f"""
-        <div style='text-align: center; padding: 0.5rem 0.4rem; background: #f0f2f6; border-radius: 8px;'>
-            <p style='font-size: 0.85rem; font-weight: bold; margin: 0; word-wrap: break-word;'>{st.session_state.result['verdict'].replace('_', ' ')}</p>
-            <p style='font-size: 0.7rem; margin: 0; color: #666;'>Verdict</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -194,31 +188,40 @@ if 'result' in st.session_state:
         
         if market_metrics:
             st.markdown("### 🌍 5 Market Models")
-            
-            col1, col2, col3 = st.columns(3)
-            
-            with col1:
-                cape = market_metrics.get('cape', {})
-                st.markdown(f"**CAPE:** {cape.get('value', 'N/A')} - {cape.get('signal', 'N/A')}")
-            
-            with col2:
-                fed = market_metrics.get('fed_model', {})
-                st.markdown(f"**Fed Model:** {fed.get('spread', 0):.2f}% - {fed.get('signal', 'N/A')}")
-            
-            with col3:
-                rule20 = market_metrics.get('rule_of_20', {})
-                st.markdown(f"**Rule of 20:** {rule20.get('deviation_pct', 0):.1f}% deviation")
-            
-            col4, col5 = st.columns(2)
-            
-            with col4:
-                peg = market_metrics.get('peg', {})
-                peg_val = peg.get('value')
-                st.markdown(f"**PEG:** {peg_val:.2f} - {peg.get('signal', 'N/A')}" if peg_val else "**PEG:** N/A")
-            
-            with col5:
-                buffett = market_metrics.get('buffett', {})
-                st.markdown(f"**Buffett Indicator:** {buffett.get('signal', 'N/A')}")
+
+            cape = market_metrics.get('cape', {})
+            fed = market_metrics.get('fed_model', {})
+            rule20 = market_metrics.get('rule_of_20', {})
+            peg = market_metrics.get('peg', {})
+            peg_val = peg.get('value')
+            buffett = market_metrics.get('buffett', {})
+
+            peg_text = f"{peg_val:.2f} - {peg.get('signal', 'N/A')}" if peg_val else "N/A"
+
+            st.markdown(f"""
+            <div style='display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem;'>
+                <div style='background: #1e1e2e; border-radius: 8px; padding: 0.7rem 0.8rem;'>
+                    <span style='color: #aaa; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px;'>CAPE</span>
+                    <p style='margin: 0.2rem 0 0; color: #eee; font-size: 0.88rem;'><strong>{cape.get('value', 'N/A')}</strong> — {cape.get('signal', 'N/A')}</p>
+                </div>
+                <div style='background: #1e1e2e; border-radius: 8px; padding: 0.7rem 0.8rem;'>
+                    <span style='color: #aaa; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px;'>Fed Model</span>
+                    <p style='margin: 0.2rem 0 0; color: #eee; font-size: 0.88rem;'><strong>{fed.get('spread', 0):.2f}%</strong> — {fed.get('signal', 'N/A')}</p>
+                </div>
+                <div style='background: #1e1e2e; border-radius: 8px; padding: 0.7rem 0.8rem;'>
+                    <span style='color: #aaa; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px;'>Rule of 20</span>
+                    <p style='margin: 0.2rem 0 0; color: #eee; font-size: 0.88rem;'><strong>{rule20.get('deviation_pct', 0):.1f}%</strong> deviation</p>
+                </div>
+                <div style='background: #1e1e2e; border-radius: 8px; padding: 0.7rem 0.8rem;'>
+                    <span style='color: #aaa; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px;'>PEG</span>
+                    <p style='margin: 0.2rem 0 0; color: #eee; font-size: 0.88rem;'><strong>{peg_text}</strong></p>
+                </div>
+                <div style='background: #1e1e2e; border-radius: 8px; padding: 0.7rem 0.8rem;'>
+                    <span style='color: #aaa; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px;'>Buffett Indicator</span>
+                    <p style='margin: 0.2rem 0 0; color: #eee; font-size: 0.88rem;'><strong>{buffett.get('signal', 'N/A')}</strong></p>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
         
         st.markdown("### 📈 Peer Comparison")
         
