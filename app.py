@@ -72,11 +72,21 @@ with st.sidebar:
     
     analyze_button = st.button("🚀 Analyze Now", type="primary", use_container_width=True)
     
-    if 'result' in st.session_state:
+if 'result' in st.session_state:
         st.markdown("---")
         st.markdown("### 📊 Quick Stats")
-        st.metric("Confidence", f"{st.session_state.result['confidence']}%")
-        st.metric("Verdict", st.session_state.result['verdict'].replace('_', ' '))
+        st.markdown(f"""
+        <div style='text-align: center; padding: 1rem; background: #f0f2f6; border-radius: 10px; margin-bottom: 1rem;'>
+            <p style='font-size: 3rem; font-weight: bold; margin: 0; color: #667eea;'>{st.session_state.result['confidence']}%</p>
+            <p style='font-size: 1rem; margin: 0; color: #666;'>Confidence</p>
+        </div>
+        """, unsafe_allow_html=True)
+        st.markdown(f"""
+        <div style='text-align: center; padding: 1rem; background: #f0f2f6; border-radius: 10px;'>
+            <p style='font-size: 1.5rem; font-weight: bold; margin: 0;'>{st.session_state.result['verdict'].replace('_', ' ')}</p>
+            <p style='font-size: 0.9rem; margin: 0; color: #666;'>Verdict</p>
+        </div>
+        """, unsafe_allow_html=True)
 
 if analyze_button:
     with st.spinner(f"{agent_name} is analyzing..."):
@@ -114,7 +124,6 @@ if 'result' in st.session_state:
     verdict_emoji = verdict_colors.get(r['verdict'], '⚪')
     
     st.markdown(f"# {verdict_emoji} {r['verdict'].replace('_', ' ')}")
-    st.markdown(f"### Confidence: {r['confidence']}%")
     
     st.markdown("---")
     
