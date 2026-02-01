@@ -1,0 +1,18 @@
+issuer,sector,yield_pct,maturity_years,rating,price,coupon_pct,total_debt_m,market_cap_m
+US Treasury 5Y,Government,4.35,5,AAA,100.0,4.25,0,0
+US Treasury 10Y,Government,4.58,10,AAA,98.2,4.50,0,0
+Apple Inc 2030,Tech,4.15,5,AA+,101.8,4.00,110000,3612500
+Microsoft 2029,Tech,3.95,4,AAA,102.5,3.85,75000,3309800
+Amazon 2031,Tech,4.52,6,AA,99.8,4.35,154000,2286300
+JPMorgan Chase 2029,Finance,5.08,4,A+,98.5,4.85,350000,520000
+Bank of America 2030,Finance,5.35,5,A,97.2,5.15,280000,315000
+ExxonMobil 2032,Energy,5.12,7,AA-,99.2,4.95,65000,459300
+Chevron 2030,Energy,4.88,5,AA-,100.1,4.75,48000,285200
+Tesla 2028,Auto,6.85,3,BB+,94.2,6.50,15000,1237800
+Ford Motor 2029,Auto,7.52,4,BB,91.5,7.25,130000,41600
+AT&T 2031,Telecom,6.15,6,BBB+,96.8,5.95,180000,125000
+Verizon 2030,Telecom,5.75,5,BBB+,98.2,5.60,150000,178000
+CCC Energy Corp 2027,Energy,12.25,2,B,83.5,11.50,8000,950
+Junk Mining Inc 2028,Materials,14.15,3,B-,76.8,13.75,5000,620
+NYC Municipal 2030,Municipal,3.45,5,AA,101.2,3.30,0,0
+California Muni 2032,Municipal,3.72,7,AA-,100.5,3.55,0,0

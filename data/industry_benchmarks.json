@@ -1,0 +1,52 @@
+{
+  "Tech": {
+    "pe_median": 32.5,
+    "pe_10yr_avg": 28.5,
+    "pb_median": 8.2,
+    "ev_ebitda_median": 18.3,
+    "cape_ratio": 38.2
+  },
+  "Auto": {
+    "pe_median": 6.5,
+    "pe_10yr_avg": 12.8,
+    "pb_median": 1.1,
+    "ev_ebitda_median": 5.5,
+    "cape_ratio": 8.2
+  },
+  "Energy": {
+    "pe_median": 11.8,
+    "pe_10yr_avg": 15.2,
+    "pb_median": 1.6,
+    "ev_ebitda_median": 8.9,
+    "cape_ratio": 12.5
+  },
+  "Finance": {
+    "pe_median": 10.5,
+    "pe_10yr_avg": 12.2,
+    "pb_median": 1.2,
+    "ev_ebitda_median": 9.5,
+    "cape_ratio": 11.8
+  },
+  "Telecom": {
+    "pe_median": 14.2,
+    "pe_10yr_avg": 15.8,
+    "pb_median": 2.1,
+    "ev_ebitda_median": 7.2,
+    "cape_ratio": 13.5
+  },
+  "Materials": {
+    "pe_median": 16.5,
+    "pe_10yr_avg": 18.2,
+    "pb_median": 1.9,
+    "ev_ebitda_median": 8.5,
+    "cape_ratio": 15.2
+  },
+  "Government": {
+    "bond_yield_avg": 4.35,
+    "credit_spread_avg": 0.0
+  },
+  "Municipal": {
+    "bond_yield_avg": 3.5,
+    "credit_spread_avg": 0.3
+  }
+}
